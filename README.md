@@ -1,7 +1,7 @@
 conform-async
 =============
 
-A handy wrapper for `process.nextTick` that you can use to call a callback on the next tick instead of immediate, even though you have the results for callback. [Here's why you'd want to do this (scroll to "It is very important...".](http://nodejs.org/api/process.html#process_process_nexttick_callback)
+A handy wrapper for `process.nextTick` that you can use to call a callback on the next tick instead of immediate, even though you have the results for callback. [Here's why you'd want to do this](http://nodejs.org/api/process.html#process_process_nexttick_callback) (scroll to "It is very important...").
 
 Installation
 ------------
