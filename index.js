@@ -2,7 +2,6 @@ var sliceCall = Array.prototype.slice.call;
 
 // Expecting params cb, error, result1, result2, ...
 function makeCallbackCaller(cb) {
-	console.log('cb', cb)
 	var paramsForCallback = Array.prototype.slice.call(arguments, 1);
 
 	return function callbackCall() {
