@@ -1,6 +1,6 @@
 {
   "name": "conform-async",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Calls callbacks on next tick so you can avoid craziness from code that expects async to not execute immediately.",
   "main": "index.js",
   "scripts": {

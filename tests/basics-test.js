@@ -26,8 +26,26 @@ test('Async callin\'', function asyncTest(t) {
   			'This should be the first result.',
   			'This should be the second result.'
   		],
-  		'Results were not added in the right order!'
+  		'Results were added in the right order.'
   	)
   },
   100);
+});
+
+test('More than one value param', function moreThanOneValueParamTest(t) {
+	t.plan(1);
+
+	var savedParams;
+
+	function saveParams(error, one, two, three) {
+		savedParams = [one, two, three];
+	}
+
+	conformAsync.callBackOnNextTick(saveParams, null, 'one', 'two', 'three');
+	process.nextTick(function checkSavedParams() {
+		t.deepEqual(
+			savedParams, ['one', 'two', 'three'],
+			'The callback received all of the parameters.'
+		);
+	});
 });

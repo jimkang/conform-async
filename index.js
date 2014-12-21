@@ -1,11 +1,21 @@
-function makeCallbackCaller(cb, error, result) {
+var sliceCall = Array.prototype.slice.call;
+
+// Expecting params cb, error, result1, result2, ...
+function makeCallbackCaller(cb) {
+	console.log('cb', cb)
+	var paramsForCallback = Array.prototype.slice.call(arguments, 1);
+
 	return function callbackCall() {
-		cb(error, result);
+		cb.apply(cb, paramsForCallback);
 	};
 }
 
-function callBackOnNextTick(cb, error, result) {
-	process.nextTick(makeCallbackCaller(cb, error, result));
+// Expecting params cb, error, result1, result2, ...
+function callBackOnNextTick() {
+	var caller = makeCallbackCaller.apply(
+		null, Array.prototype.slice.call(arguments, 0)
+	);
+	process.nextTick(caller);
 }
 
 module.exports = {
